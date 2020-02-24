@@ -13,9 +13,13 @@
 	  <script type="text/javascript" src="va.js"></script>
       <script type="text/javascript">
          /* page specific js */
-
-
-
+$("input[name=checkbox-infodoc]").on("change", function () {
+  if ($(this).val() === "yes") {
+      $(".q-1").removeClass("hiddenInput");
+  } else if ($(this).val() === "no") {
+      $(".q-1").addClass("hiddenInput");
+  }
+});
       </script>
       <style type="text/css">
       </style>
@@ -58,12 +62,12 @@
                <nav class="au-breadcrumbs" aria-label="breadcrumb">
                   <ul class="au-link-list au-link-list--inline">
                      <li><a href="#">myCASA</a></li>
-                     <li>Service name</li>
+                     <li>Release of Flight Crew Licencsing (FCL) Information</li>
                   </ul>
                </nav>
 			  <div class="casa-section">
                <header class="au-header" role="banner">
-                  <h1 class="break desktop au-header-heading">Service name</h1>
+                  <h1 class="break desktop au-header-heading">Release of Flight Crew Licencsing (FCL) Information</h1>
                   <a class="au-direction-link" href="javascript:history.back()">
 					<span class="au-direction-link__arrow au-direction-link__arrow--left" aria-hidden="true"></span>Back
 					</a>
@@ -73,35 +77,58 @@
         <div class="row">
                	<div class="col-xs-12 col-md-12 col-lg-6">
 
-                <h3>Service step name</h3>
+                <h3>Documents to be released</h3>
                 <!-- the step of the process on this page -->
 
                 <!-- content starts here -->
                 <div class="au-callout">
-                  <p>Some information that is important to highlight</p>
+                  <p>This authority allows CASA to release the information you select below when it is requested by your nominated organisation(s). This is not an application for CASA to send information to them. The information will only be sent once it has been requested.</p>
+                  <p>If you need verification of your flight crew licence to be sent to a foreign national aviation authority you must complete a CASA <a href="https://www.casa.gov.au/sites/default/files/flight-crew-licence-verification-form-452.pdf">Form 452</a>.</p>
                 </div>
-
-                <p>More general information</p>
-
 
                 <!-- form group for radio/checkboxes -->
                 <div class="au-form-group">
                   <fieldset class="au-fieldset">
                       <legend class="au-fieldset__legend">
-                          <h3 class="au-display-sm">What type of aircraft?</h3>
-                          <span class="au-hint-text">This is some help text</span>
+                          <h3 class="au-display-sm">Documents/Information to be released</h3>
+                          I, the undersigned, hereby authorise the Civil Aviation Safety Authority (CASA) to release the information or document selected below to my nominated organisation(s):
                       </legend>
 
                       <div class="au-control-input au-control-input--block">
-                          <input class="au-control-input__input" type="radio" name="assessed-simulator"
-                                     id="assessed-aircraft" value="select-review">
-                              <label class="au-control-input__text" for="assessed-aircraft">Aeroplane</label>
+                          <input class="au-control-input__input" type="checkbox" name="checkbox-infodoc"
+                                     id="infodoc-FCL">
+                              <label class="au-control-input__text" for="infodoc-FCL">My Australian Flight Crew Licence (including ratings)</label>
                       </div>
 
                       <div class="au-control-input au-control-input--block">
-                          <input class="au-control-input__input" type="radio" name="assessed-simulator"
-                                     id="assessed-simulator" value="select-review-sim">
-                              <label class="au-control-input__text" for="assessed-simulator">Helicopter</label>
+                          <input class="au-control-input__input" type="checkbox" name="checkbox-infodoc"
+                                     id="infodoc-ARN">
+                              <label class="au-control-input__text" for="infodoc-ARN">My ARN</label>
+                      </div>
+
+                      <div class="au-control-input au-control-input--block">
+                          <input class="au-control-input__input" type="checkbox" name="checkbox-infodoc"
+                                     id="infodoc-AvMed">
+                              <label class="au-control-input__text" for="infodoc-AvMed">My current Aviation Medical Certificate including any medical information or documents held by CASA about me</label>
+                      </div>
+
+                      <div class="au-control-input au-control-input--block">
+                          <input class="au-control-input__input" type="checkbox" name="checkbox-infodoc"
+                                     id="infodoc-suspensioncancel">
+                              <label class="au-control-input__text" for="infodoc-suspensioncancel">Details of any suspensions/cancellations of my Flight Crew Licence and any enforcement action brought against me by
+CASA</label>
+                      </div>
+
+                      <div class="au-control-input au-control-input--block">
+                          <input class="au-control-input__input" type="checkbox" name="checkbox-infodoc"
+                                     id="infodoc-other">
+                              <label class="au-control-input__text hiddenInput" for="infodoc-other">Other</label>
+                              <div class="hiddenInput">
+<label class="au-label" for="textarea">If Other, please specify:</label>
+<textarea class="au-text-input au-text-input--block" name="textarea" id="textarea">
+
+</textarea>
+
                       </div>
 
 
@@ -110,14 +137,84 @@
                   </div>
 
 
+                  <h3>Organisation Details</h3>
+                  <!-- the step of the process on this page -->
 
+                  <div><p></p><p>What are your organisation details?</p></div>
+
+                  <p><h4>Organisation One:</h4></p>
                   <!-- form group for text and other input -->
-                  <div class="au-form-group">
-                    <label class="au-label" for="name">Text input</label>
-                    <span class="au-hint-text">Please enter some text</span>
-                    <input type="text" class="au-text-input au-text-input--block" id="name"/>
+                  <div class="au-form-org-one">
+                    <label class="au-label" for="org-name1">Organisation name:</label>
+                    <span class="au-hint-text">Please enter the organisation's name</span>
+                    <input type="text" class="au-text-input au-text-input--block" id="org-name1"/>
+                    <p>
+                      <label class="au-label" for="contact-name1">Contact name:</label>
+                      <input type="text" class="au-text-input au-text-input--block" id="contact-name1"/>
+                    </p>
+                    <p>
+                      <label class="au-label" for="contact-number1">Contact number:</label>
+                      <input type="text" class="au-text-input au-text-input--block" id="contact-number1"/>
+                    </p>
+                    <p>
+                      <label class="au-label" for="emailid1">Email address:</label>
+                      <input type="text" class="au-text-input au-text-input--block" id="emailid1"/>
+                    </p>
+                    <p>
+                      <label class="au-label" for="fax1">Fax number:</label>
+                      <input type="text" class="au-text-input au-text-input--block" id="fax1"/>
+                    </p>
                  </div>
 
+                 <p><h4>Organisation Two:</h4></p>
+                 <!-- form group for text and other input -->
+                 <div class="au-form-org-one">
+                   <label class="au-label" for="org-name2">Organisation name:</label>
+                   <span class="au-hint-text">Please enter the organisation's name</span>
+                   <input type="text" class="au-text-input au-text-input--block" id="org-name2"/>
+                   <p>
+                     <label class="au-label" for="contact-name2">Contact name:</label>
+                     <input type="text" class="au-text-input au-text-input--block" id="contact-name2"/>
+                   </p>
+                   <p>
+                     <label class="au-label" for="contact-number2">Contact number:</label>
+                     <input type="text" class="au-text-input au-text-input--block" id="contact-number2"/>
+                   </p>
+                   <p>
+                     <label class="au-label" for="emailid2">Email address:</label>
+                     <input type="text" class="au-text-input au-text-input--block" id="emailid2"/>
+                   </p>
+                   <p>
+                     <label class="au-label" for="fax2">Fax number:</label>
+                     <input type="text" class="au-text-input au-text-input--block" id="fax2"/>
+                   </p>
+                 </div>
+
+                 <h3>Duration of authority</h3>
+                 <div class="au-callout">
+                   <p>This authority remains in effect for a period of 12 months or until the date below. Enter the date if the period is less than 12 months.</p>
+                 </div>
+
+                 <div class="au-form-group casa-inline-form-group">
+                        <fieldset class="au-fieldset">
+                             <legend class="au-fieldset__legend">
+                                 <span class="au-hint-text">For example, 31 01 2020 (DD/MM/YYYY)</span>
+                             </legend>
+                             <div class="au-form-group casa-inline-form-subgroup">
+                                 <label class="au-label" for="dd">Day</label>
+                                 <input type="text" class="au-text-input" id="dd" placeholder="DD">
+                            </div>
+                            <div class="au-form-group casa-inline-form-subgroup">
+                                 <label class="au-label" for="mm">Month</label>
+                                 <input type="text" class="au-text-input" id="mm" placeholder="MM">
+                            </div>
+
+                            <div class="au-form-group casa-inline-form-subgroup">
+                                 <label class="au-label" for="yyyy">Year</label>
+                                 <input type="text" class="au-text-input" id="yyyy" placeholder="YYYY">
+                            </div>
+                         </fieldset>
+                     </div>
 
 
                 <!-- content ends here -->
@@ -126,12 +223,34 @@
 
                 <div class="au-callout casa-declaration">
                    		<h3>Declaration</h3>
+                      <p>I declare that:</p>
+                      <ul><li>If I am signing this authority as an agent, I have obtained
+                      the necessary Power of Attorney authorising me to sign on
+                      behalf of the applicants.
+                        </li>
+                        <li>I understand CASA will use the currently held details to
+                      process this authority and it is my responsibility to ensure
+                      my details are correct prior to lodgment.
+                        </li>
+                        <li>I consent to CASA using and disclosing my personal
+                      information in accordance with CASA Privacy Policy
+                      including exchanging the information with Commonwealth,
+                      State and Territory government agencies.
+                        </li>
+                        <li>I acknowledge CASA will provide a fee estimate, which will
+                      be sent to the contact for this authority.
+                        </li>
+                        <li>I accept that if this authority is withdrawn or refused by
+                      CASA, or if CASA are unable to assess the authority because
+                      I have failed to provide the required information, I am liable
+                      to pay CASA fees for work conducted.
+                        </li>
+                        <li>I acknowledge that to knowingly make a false or misleading
+                      statement in this application is an offence against the
+                      Criminal Code Act 1995 (Cth)
+                        </li>
+                      </ul>
 
-                      <p>I hereby certify that all statements in this application are true and correct in every particular and that I have read
-     and understood all regulatory references included in this application. I consent to CASA using and disclosing
-     my personal information in accordance with CASA’s privacy policy including exchanging the information with
-     Commonwealth, State and Territory government agencies (see CASA’s Privacy Policy ). I acknowledge that to knowingly make a false or
-     misleading statement is an offence against the Criminal Code Act 1995 (Cth).</p>
   		                <p>
             					<label class="au-control-input">
             					<input class="au-control-input__input" type="checkbox" name="checkbox-ex" id="declaration">
